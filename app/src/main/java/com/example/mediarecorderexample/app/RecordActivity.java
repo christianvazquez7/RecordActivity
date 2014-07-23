@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.hardware.Camera;
 import android.media.MediaRecorder;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 import android.view.SurfaceHolder;
@@ -33,7 +32,6 @@ public class RecordActivity extends Activity implements SurfaceHolder.Callback {
         setContentView(R.layout.activity_main);
         cameraPreview = new SurfaceView(this);
         cameraPreview.getHolder().addCallback(this);
-        //cameraPreview.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
         frame = (FrameLayout) super.findViewById(R.id.camera_preview);
         frame.addView(this.cameraPreview);
     }
@@ -71,7 +69,7 @@ public class RecordActivity extends Activity implements SurfaceHolder.Callback {
         try {
             camera.stopPreview();
             camera.setPreviewDisplay(null);
-        } catch (IOException e){
+        } catch (IOException e) {
             Log.d(TAG, "IOException setting preview display: " + e.getMessage());
 
         }
@@ -96,7 +94,7 @@ public class RecordActivity extends Activity implements SurfaceHolder.Callback {
             releaseMediaRecorder();
         }
 
-            mediaRecorder.start();
+        mediaRecorder.start();
 
         Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable() {
