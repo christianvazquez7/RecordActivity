@@ -3,6 +3,10 @@ RecordActivity
 
 The following activity tests the MediaRecorder class by recording a 5 second video.
 
+Try it from the command line:
+
+      adb shell am start -a android.intent.action.MAIN -n             com.example.mediarecorderexample.app/com.example.mediarecorderexample.app.RecordActivity
+      
 The code in RecordActivity.java was tested on the following devices:
 
 - Nexus 4 running Android 4.4.4 (working)
