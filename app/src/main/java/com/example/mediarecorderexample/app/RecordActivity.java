@@ -66,6 +66,10 @@ public class RecordActivity extends Activity implements SurfaceHolder.Callback {
             camera = getCameraInstanceRetry();
         }
 
+        Camera.Parameters params = camera.getParameters();
+        params.setRecordingHint(true);
+        camera.setParameters(params);
+
         try {
             camera.stopPreview();
             camera.setPreviewDisplay(null);
